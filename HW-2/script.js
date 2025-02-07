@@ -220,7 +220,7 @@ console.log('------ TASK #11 ------')
 values = ['стрінг', '', ' ', 0, 1, 2, 3, NaN, undefined, null];
 let x = values[getRandom(values.length - 1)];
 console.log(`initial x = ${wrapIfString(x)}`)
-if (!x) x = 0;
+if (!x) x = 'default';
 console.log(`x = ${wrapIfString(x)}`)
 
 function wrapIfString(x) {
