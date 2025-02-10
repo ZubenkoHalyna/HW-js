@@ -112,8 +112,7 @@ function min(arr) {
 // створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його.
 // Приклад sum([1,2,10]) //->13
 function sum(arr) {
-    if (!arr || arr.length === 0)
-        return NaN;
+    if (!arr) return NaN;
     let sum = 0;
     for (let item of arr) {
         sum += item;
@@ -143,6 +142,7 @@ function exchange(sumUAH, currencyValues, exchangeCurrency) {
             currencyValue = item.value;
         }
     }
-    if (!currencyValue) return NaN;
+    if (currencyValue === 0) return NaN;
+    if (!currencyValue) return undefined;
     return sumUAH / currencyValue;
 }

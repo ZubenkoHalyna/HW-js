@@ -56,6 +56,8 @@ console.log(min([2, 8, 6, 0, 1, -2, 4])); //-2
 // створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його.
 // Приклад sum([1,2,10]) //->13
 console.log(sum([1, 2, 10])); //13
+console.log(sum([])); //0
+console.log(sum(null)); //NaN
 // #kpsbSQCt2Lf
 // створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
@@ -64,3 +66,5 @@ console.log(swap([11, 22, 33, 44], 0, 1)); //[22,11,33,44]
 // Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
 console.log(exchange(10000, [{currency: 'USD', value: 25}, {currency: 'EUR', value: 42}], 'USD')); //400
+console.log(exchange(10000, [{currency: 'EUR', value: 42}], 'USD')); //undefined
+console.log(exchange(10000, [{currency: 'USD', value: 0}], 'USD')); //NaN
