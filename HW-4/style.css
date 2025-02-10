@@ -1,0 +1,9 @@
+.users-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.user-card {
+    padding: 1rem;
+    background: lightgrey;
+}
