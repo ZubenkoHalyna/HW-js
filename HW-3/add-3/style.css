@@ -1,0 +1,10 @@
+.wrap {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.post-card {
+    padding: 0.5rem 2rem;
+    margin: 0.5rem;
+    background: lightgrey;
+}
