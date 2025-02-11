@@ -30,16 +30,17 @@ function printArray(array) {
 // recursive
 function printItem(obj) {
     if (typeof obj === 'object' && obj) {
-        Array.isArray(obj) ? document.write('[') : document.write('{');
+        let isArray = Array.isArray(obj);
+        isArray ? document.write('[') : document.write('{');
 
         let isFirst = true;
         for (let field in obj) {
             if (!isFirst) document.write(', '); else isFirst = false;
-            if (!Array.isArray(obj)) document.write(field + ': ');
+            if (!isArray) document.write(field + ': ');
             printItem(obj[field]);
         }
 
-        Array.isArray(obj) ? document.write(']') : document.write('}');
+        isArray ? document.write(']') : document.write('}');
     } else
         (typeof obj === 'string') ? document.write(`'${obj}'`) : document.write(obj);
 }
