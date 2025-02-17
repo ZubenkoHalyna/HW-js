@@ -20,10 +20,9 @@ let str = ' dirty string   ';
 // Почистити її від зайвих пробілів.
 console.log(str.trim());
 
-
 // #bfoJuse4ZzP
 console.log('------ TASK #5 ------');
-// Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
+// Напишіть функцію stringToArray(str), яка перетворює рядок на масив слів.
 // str = 'Ревуть воли як ясла повні';
 // arr = stringToArray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
 console.log(stringToArray('Ревуть воли як ясла повні'));
@@ -53,6 +52,7 @@ function sortNums(nums, dir) {
         return nums.sort((a, b) => b - a);
     else return null;
 }
+
 console.log('ascending:', sortNums(nums, 'ascending'));
 console.log('descending:', sortNums(nums, 'descending'));
 
@@ -91,7 +91,7 @@ console.log('------ TASK #9 ------');
 //
 // {
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
-//         value: '', // '6'-'10', 'ace','jack','queen','king'
+//     value: '', // '6'-'10', 'ace','jack','queen','king'
 //     color:'', // 'red','black'
 // }
 let suits = ['spade', 'clubs', 'diamond', 'heart'];
@@ -115,33 +115,33 @@ console.log('------ TASK #10 ------');
 // Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
 // {
 //     spades:[],
-//         diamonds:[],
+//     diamonds:[],
 //     hearts:[],
 //     clubs:[]
 // }
 let cardsPerSuits =
-cards.reduce((acc, card) => {
-    switch (card.suit) {
-        case 'spade':
-            acc.spades.push(card);
-            break;
-        case 'clubs':
-            acc.clubs.push(card);
-            break;
-        case 'diamond':
-            acc.diamonds.push(card);
-            break;
-        case 'heart':
-            acc.hearts.push(card);
-            break;
-    }
-    return acc;
-}, {
-    spades: [],
-    diamonds: [],
-    hearts: [],
-    clubs: []
-});
+    cards.reduce((acc, card) => {
+        switch (card.suit) {
+            case 'spade':
+                acc.spades.push(card);
+                break;
+            case 'clubs':
+                acc.clubs.push(card);
+                break;
+            case 'diamond':
+                acc.diamonds.push(card);
+                break;
+            case 'heart':
+                acc.hearts.push(card);
+                break;
+        }
+        return acc;
+    }, {
+        spades: [],
+        diamonds: [],
+        hearts: [],
+        clubs: []
+    });
 console.log(cardsPerSuits);
 
 // #4LJn7zBx
