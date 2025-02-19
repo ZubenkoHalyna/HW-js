@@ -131,8 +131,7 @@ function Car(model, manufacturer, releaseYear, maximumSpeed, engineDisplacement,
     }
 
     this.info = function () {
-        for (let field in this)
-            if (field) console.log(`${field} - ${this[field]}`);
+        Object.entries(this).forEach(([key, value]) => console.log(`${key} - ${value}`));
     }
 
     this.increaseMaxSpeed = function (newSpeed) {
@@ -187,7 +186,8 @@ class CarObj {
     }
 
     info() {
-        Object.entries(this).forEach(([key, value]) => console.log(`${key} - ${value}`));
+        for (let field in this)
+            console.log(`${field} - ${this[field]}`);
     }
 
     increaseMaxSpeed(newSpeed) {
