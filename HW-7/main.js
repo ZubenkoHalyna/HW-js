@@ -84,13 +84,15 @@ console.log('------ TASK #4 ------');
 // - створити класс для об'єктів Client з полями
 // id, name, surname, email, phone, order (поле є масивом зі списком товарів)
 // створити пустий масив, наповнити його 10 об'єктами Client
-function Client(user, products) {
-    this.id = idGenerator.next().value;
-    this.name = user.name;
-    this.surname = user.surname;
-    this.order = products;
-    this.email = user.email;
-    this.phone = user.phone;
+class Client {
+    constructor(user, products) {
+        this.id = idGenerator.next().value;
+        this.name = user.name;
+        this.surname = user.surname;
+        this.order = products;
+        this.email = user.email;
+        this.phone = user.phone;
+    }
 }
 
 let clients = [];
