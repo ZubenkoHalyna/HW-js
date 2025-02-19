@@ -65,18 +65,22 @@ console.log(users);
 
 // #2ikXsE2WiKZ
 console.log('------ TASK #2 ------');
+
 // - Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
 function predicate(u) {
     return u.id % 2 === 0;
 }
+
 console.log(users.filter(predicate));
 
 // #pOeHKct
 console.log('------ TASK #3 ------');
+
 // - Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
 function sorter(u1, u2) {
     return u1.id - u2.id;
 }
+
 console.log(users.slice().sort(sorter)); //використала slice, щоб зберегти невідсортований масив для 1-го таску
 
 // #nkMXISv
@@ -131,7 +135,9 @@ function Car(model, manufacturer, releaseYear, maximumSpeed, engineDisplacement,
     }
 
     this.info = function () {
-        Object.entries(this).forEach(([key, value]) => console.log(`${key} - ${value}`));
+        for (let field in this)
+            if (typeof this[field] !== 'function')
+                console.log(`${field} - ${this[field]}`);
     }
 
     this.increaseMaxSpeed = function (newSpeed) {
