@@ -1,29 +1,9 @@
-function getRandom(max, min = 0) {
-    return Math.floor(Math.random() * (max + 1 - min)) + min;
-}
-
-function* idHolder() {
-    while (true)
-        yield getRandom(999_999, 100_000);
-}
-
-let idGenerator = idHolder();
-
-function* productsHolder() {
-    let colors = ["Red", "Blue", "Green", "Yellow", "Black", "White", "Gray", "Brown", "Purple", "Orange"];
-    let products = ["Wand", "Broom", "Hat", "Robe", "Potion", "Spellbook", "Cauldron", "Crystal Ball", "Ring", "Amulet"];
-    while (true)
-        yield `${colors[getRandom(9)]} ${products[getRandom(9)]}`;
-}
-
-let productsGenerator = productsHolder();
-
 // #XjJuucOMR0
 console.log('------ TASK #1 ------');
 // - Створити функцію конструктор для об'єктів User з полями id, name, surname, email, phone
 // створити пустий масив, наповнити його 10 об'єктами new User(....)
 
-function User(name, surname, email, phone, id = idGenerator.next().value) {
+function User(name, surname, email, phone, id = getRandomId()) {
     this.id = id;
     this.name = name;
     this.surname = surname;
@@ -90,7 +70,7 @@ console.log('------ TASK #4 ------');
 // створити пустий масив, наповнити його 10 об'єктами Client
 class Client {
     constructor(user, products) {
-        this.id = idGenerator.next().value;
+        this.id = getRandomId();
         this.name = user.name;
         this.surname = user.surname;
         this.order = products;
@@ -103,7 +83,7 @@ let clients = [];
 for (let u of users) {
     let products = [];
     for (let i = 0; i < getRandom(5); i++)
-        products.push(productsGenerator.next().value);
+        products.push(getRandomProduct());
     clients.push(new Client(u, products));
 }
 console.log(clients);
@@ -272,3 +252,19 @@ Array.prototype.myFilter = function (predicate) {
     return res;
 }
 console.log(arr.myFilter((n) => n < 20));
+
+//------------ additional functions ------------
+function getRandom(max, min = 0) {
+    return Math.floor(Math.random() * (max + 1 - min)) + min;
+}
+
+function getRandomId() {
+    return getRandom(999_999, 100_000);
+}
+
+function getRandomProduct() {
+    const colors = ["Red", "Blue", "Green", "Yellow", "Black", "White", "Gray", "Brown", "Purple", "Orange"];
+    const products = ["Wand", "Broom", "Hat", "Robe", "Potion", "Spellbook", "Cauldron", "Crystal Ball", "Ring", "Amulet"];
+
+    return `${colors[getRandom(9)]} ${products[getRandom(9)]}`;
+}
