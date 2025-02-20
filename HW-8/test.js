@@ -61,8 +61,11 @@ console.log("--------- Book class check ---------");
 function notSpecifiedCheck(obj) {
     console.log(`${obj} check:`);
     try {
-        if (deepCopy(obj) === obj)
+        let copy = deepCopy(obj);
+        if (copy === obj || (isNaN(obj) && isNaN(copy)))
             console.log('passed');
+        else
+            console.error(`failed: init - ${obj}, copy - ${copy}`);
     } catch (e) {
         console.error(e.message);
     }
