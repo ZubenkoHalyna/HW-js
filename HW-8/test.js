@@ -40,7 +40,7 @@ let book = {
     title: 'The Talisman',
     pageCount: 352,
     genre: 'Literary nonsense',
-    authors: [null, new Author('Stephen King', 77, nextId++), new Author('Peter Straub', 79, nextId++)],
+    authors: [new Author('Stephen King', 77, nextId++), new Author('Peter Straub', 79, nextId++)],
     publishers: [new Publisher('Viking Press', 'New York, USA', nextId++),
         new Publisher('Gollancz', 'London, UK', nextId++)],
 
