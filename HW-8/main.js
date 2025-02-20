@@ -8,12 +8,11 @@ function addFunctions(objFrom, objTo) {
             for (let i = 0; i < objFrom.length; i++)
                 addFunctions(objFrom[i], objTo[i]);
         } else {
+            Object.setPrototypeOf(objTo, Object.getPrototypeOf(objFrom));
 
             for (let key in objFrom)
-                if (typeof objFrom[key] === 'object') {
-                    Object.setPrototypeOf(objTo, Object.getPrototypeOf(objFrom));
+                if (typeof objFrom[key] === 'object')
                     addFunctions(objFrom[key], objTo[key]);
-                }
                 else if (typeof objFrom[key] === 'function')
                     objTo[key] = objFrom[key].bind(objTo);
         }
