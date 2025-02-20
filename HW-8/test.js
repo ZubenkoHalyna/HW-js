@@ -75,11 +75,11 @@ console.log("book", book);
 console.log("bookCopy", bookCopy);
 
 console.log("--------- Equals check ---------");
-isEqual("book", book, bookCopy);
-isEqual("author", book.authors, bookCopy.authors);
-isEqual("publisher", book.publishers, bookCopy.publishers);
+equalCheck("book", book, bookCopy);
+equalCheck("author", book.authors, bookCopy.authors);
+equalCheck("publisher", book.publishers, bookCopy.publishers);
 
-function isEqual(objName, obj1, obj2) {
+function equalCheck(objName, obj1, obj2) {
     console.log(`${objName} equal test: `);
     let flag = false;
     if (Array.isArray(obj1)) {
