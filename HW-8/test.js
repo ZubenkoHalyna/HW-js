@@ -40,7 +40,7 @@ let book = {
     title: 'The Talisman',
     pageCount: 352,
     genre: 'Literary nonsense',
-    authors: [new Author('Stephen King', 77, nextId++), new Author('Peter Straub', 79, nextId++)],
+    authors: [null, new Author('Stephen King', 77, nextId++), new Author('Peter Straub', 79, nextId++)],
     publishers: [new Publisher('Viking Press', 'New York, USA', nextId++),
         new Publisher('Gollancz', 'London, UK', nextId++)],
 
@@ -51,6 +51,23 @@ let book = {
 
 
 console.log('------ TASK #1 TESTS ------');
+
+console.log("--------- Not specified objects copy ---------");
+notSpecifiedCheck(null);
+notSpecifiedCheck(NaN);
+notSpecifiedCheck(undefined);
+
+console.log("--------- Book class check ---------");
+function notSpecifiedCheck(obj) {
+    console.log(`${obj} check:`);
+    try {
+        if (deepCopy(obj) === obj)
+            console.log('passed');
+    } catch (e) {
+        console.error(e.message);
+    }
+}
+
 let bookCopy = deepCopy(book);
 // let bookCopy = {...book};
 // let bookCopy = JSON.parse(JSON.stringify(book));
@@ -67,7 +84,7 @@ function isEqual(objName, obj1, obj2) {
     let flag = false;
     if (Array.isArray(obj1)) {
         for (let i = 0; i < obj1.length; i++) {
-            if (obj1[i] === obj2[i]) flag = true;
+            if (obj1[i] && obj1[i] === obj2[i]) flag = true;
         }
     }
     if (obj1 === obj2)
@@ -91,6 +108,8 @@ console.log("--------- Embedded array, element's base class field changing check
 fieldCheck("author", book.authors[0], bookCopy.authors[0], "id");
 
 function fieldCheck(objName, initObj, copyObj, key) {
+    if (!existenceCheck(objName, initObj, copyObj)) return;
+
     console.log(`${objName} current ${key}:`, initObj[key]);
     console.log(`${objName} copy current ${key}:`, copyObj[key]);
 
@@ -121,11 +140,26 @@ methodCheck("author", book.authors[0], bookCopy.authors[0], "getId");
 methodCheck("publisher", book.publishers[0], bookCopy.publishers[0], "getId");
 
 function methodCheck(objName, initObj, copyObj, key) {
-    console.log(`${objName}.${key} test:`);
+    if (!existenceCheck(objName, initObj, copyObj)) return;
+
+        console.log(`${objName}.${key} test:`);
     console.log("Call on initial obj:", initObj[key]());
     try {
         console.log("Call on copy obj:", copyObj[key]());
     } catch (e) {
         console.error("Call on copy obj:", "ERROR - " + e.message.replace("copyObj", objName).replace("key", key));
     }
+}
+
+function existenceCheck(name, o1, o2) {
+    if (!o1 || !o2) {
+        if (!o1 && !o2) {
+            console.warn(`${name}s aren't specified`);
+            return false;
+        } else {
+            console.error(`One of ${name}s isn't specified`);
+            return false;
+        }
+    }
+    return true;
 }

@@ -8,17 +8,19 @@ function addFunctions(objFrom, objTo) {
             for (let i = 0; i < objFrom.length; i++)
                 addFunctions(objFrom[i], objTo[i]);
         } else {
-            Object.setPrototypeOf(objTo, Object.getPrototypeOf(objFrom));
 
             for (let key in objFrom)
-                if (typeof objFrom[key] === 'object')
+                if (typeof objFrom[key] === 'object') {
+                    Object.setPrototypeOf(objTo, Object.getPrototypeOf(objFrom));
                     addFunctions(objFrom[key], objTo[key]);
+                }
                 else if (typeof objFrom[key] === 'function')
                     objTo[key] = objFrom[key].bind(objTo);
         }
 }
 
 function deepCopy(obj) {
+    if (!obj) return obj;
     let objCopy = JSON.parse(JSON.stringify(obj));
     addFunctions(obj, objCopy);
     return objCopy;
