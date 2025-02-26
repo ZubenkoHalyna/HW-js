@@ -1,0 +1,55 @@
+* {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 1rem;
+}
+
+ul, .container {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+li {
+    background-color: lightblue;
+    padding: 1rem;
+}
+
+.container div, .container .item {
+    flex: 1 0 0;
+    background-color: lightblue;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heading {
+    font-size: 20px;
+}
+
+.wrap {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.collapse {
+    color: darkgreen;
+    background-color: lightblue;
+}
+
+.alpha {
+    font-size: 18px
+}
+
+.beta {
+    font-weight: bold;
+}
