@@ -1,0 +1,27 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#price {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+#task10-container {
+    display: flex;
+    gap: 1rem;
+}
+
+#task10-container p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    padding: 1rem;
+}
