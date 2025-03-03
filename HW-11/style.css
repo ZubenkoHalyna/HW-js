@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 1rem;
+    background-color: dimgray;
+    color: white;
+}
+
+.container, ul {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container > div {
+    min-width: 400px;
+    background-color: #2b2b2b;
+    flex: 1 0 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.dots {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.dot {
+    background-color: dimgray;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: orange;
+}
+
+.product {
+    position: relative;
+    margin: 4px 0;
+    flex: 1 0 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: #a3a3a3;
+}
+
+.product div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    gap: 1rem;
+}
+
+button {
+    padding: 1rem;
+    position: absolute;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    color: dimgray;
+}
+
+button.active {
+    color: orange;
+}
+
+button:first-of-type {
+    left: 1rem;
+}
+
+button:last-of-type {
+    right: 1rem;
+}
+
+img {
+    object-fit: cover;
+    padding: 0.5rem 0;
+}
+
+li {
+    background-color: rgba(105, 105, 105, 0.5);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.difficulty {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: rgba(105, 105, 105, 0.5);
+    padding: 0.1rem 0.5rem;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    padding: 0.1rem 1rem;
+}
+
+.tab.active {
+    background-color: black;
+    padding: 0.1rem 1rem;
+    color: orange;
+}
+
+.tab-content {
+    background-color: black;
+    padding: 0.1rem 0.5rem;
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+}
+.tab-content .dots {
+    margin-bottom: 1rem;
+}
+.instruction-text {
+    padding: 1rem 3rem;
+}
+
+.instruction {
+    justify-content: center;
+}
