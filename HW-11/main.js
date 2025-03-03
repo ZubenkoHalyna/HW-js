@@ -85,30 +85,10 @@ fetch('https://dummyjson.com/carts').then(value => value.json()).then(value => {
 // взяти https://dummyjson.com/docs/recipes
 // та вивести інформацію про всі рецепти. Інгредієнти повинні бути список під час відображення.
 
-// let x = {
-//     "id": 1,
-//     "name": "Classic Margherita Pizza",
-//     "ingredients": ["Pizza dough", "Tomato sauce", "Fresh mozzarella cheese", "Fresh basil leaves", "Olive oil", "Salt and pepper to taste"],
-//     "instructions": ["Preheat the oven to 475°F (245°C).", "Roll out the pizza dough and spread tomato sauce evenly.", "Top with slices of fresh mozzarella and fresh basil leaves.", "Drizzle with olive oil and season with salt and pepper.", "Bake in the preheated oven for 12-15 minutes or until the crust is golden brown.", "Slice and serve hot."],
-//     "prepTimeMinutes": 20,
-//     "cookTimeMinutes": 15,
-//     "servings": 4,
-//     "difficulty": "Easy",
-//     "cuisine": "Italian",
-//     "caloriesPerServing": 300,
-//     "tags": ["Pizza", "Italian"],
-//     "userId": 166,
-//     "image": "https://cdn.dummyjson.com/recipe-images/1.webp",
-//     "rating": 4.6,
-//     "reviewCount": 98,
-//     "mealType": ["Dinner"]
-// }
-
 fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value => {
     document.body.appendChild(document.createElement('h2'));
     document.body.lastChild.innerText = 'Task 2, RECIPES:';
     const {recipes} = value;
-    console.log(recipes);
     const container = document.createElement('div');
     container.classList.add('container');
 
@@ -146,7 +126,6 @@ fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value =>
 
         function setActiveTab(activeTab) {
             const tabs = card.getElementsByClassName('tab');
-            console.log(tabs);
             for (let tab of tabs) {
                 console.log(tab.classList);
                 if (tab.classList) tab.classList.remove('active');
