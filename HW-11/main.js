@@ -95,7 +95,17 @@ fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value =>
     for (let recipe of recipes) {
         const card = document.createElement('div');
         const name = document.createElement('h3');
-        name.innerText = recipe.rating + ' ★ ' + recipe.name;
+        name.innerText = recipe.name;
+        const rating = document.createElement('h3');
+        rating.classList.add('rating');
+        rating.innerText = `${recipe.rating} ★ `;
+        const difficulty = document.createElement('div');
+        difficulty.classList.add('difficulty');
+        difficulty.innerText = recipe.difficulty;
+
+        const header = document.createElement('div');
+        header.classList.add('card-header');
+        header.append(rating, name, difficulty);
         const img = document.createElement('img');
         img.src = recipe.image;
         const tabs = document.createElement('div');
@@ -220,11 +230,7 @@ fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value =>
         tabs.append(ingredientsTab, stepsTab, tagsTab);
         showIngredients();
 
-        const difficulty = document.createElement('div');
-        difficulty.classList.add('difficulty');
-        difficulty.innerText = recipe.difficulty;
-
-        card.append(name, difficulty, img, tabs, tabsContent);
+        card.append(header, img, tabs, tabsContent);
         container.appendChild(card);
     }
 

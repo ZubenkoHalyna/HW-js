@@ -99,10 +99,20 @@ li {
     font-size: 0.8rem;
 }
 
+.card-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.rating {
+    color: orange;
+    line-height: 115%;
+}
+
 .difficulty {
-    position: absolute;
     right: 1rem;
     top: 1rem;
+    margin-left: auto;
     background-color: rgba(105, 105, 105, 0.5);
     padding: 0.1rem 0.5rem;
 }
@@ -113,6 +123,7 @@ li {
 
 .tab {
     padding: 0.1rem 1rem;
+    cursor: pointer;
 }
 
 .tab.active {
@@ -130,6 +141,7 @@ li {
     gap: 4px;
     align-items: center;
     justify-content: space-between;
+    color: #a3a3a3;
 }
 .tab-content .dots {
     margin-bottom: 1rem;
