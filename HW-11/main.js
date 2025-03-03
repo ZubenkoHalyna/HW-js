@@ -218,6 +218,7 @@ fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value =>
                     tags.appendChild(li);
                 }
                 const mealTypes = document.createElement('ul');
+                mealTypes.classList.add('meal-types');
                 for (let type of recipe.mealType) {
                     const li = document.createElement('li');
                     li.innerText = type;

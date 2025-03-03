@@ -138,18 +138,23 @@ li {
     flex: 1 0 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
     align-items: center;
     justify-content: space-between;
     color: #a3a3a3;
 }
+
 .tab-content .dots {
     margin-bottom: 1rem;
 }
+
 .instruction-text {
     padding: 1rem 3rem;
 }
 
 .instruction {
     justify-content: center;
+}
+
+.meal-types {
+    margin-top: 0;
 }
