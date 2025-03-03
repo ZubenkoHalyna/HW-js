@@ -127,7 +127,6 @@ fetch('https://dummyjson.com/recipes').then(value => value.json()).then(value =>
         function setActiveTab(activeTab) {
             const tabs = card.getElementsByClassName('tab');
             for (let tab of tabs) {
-                console.log(tab.classList);
                 if (tab.classList) tab.classList.remove('active');
             }
             activeTab.classList.add('active');
